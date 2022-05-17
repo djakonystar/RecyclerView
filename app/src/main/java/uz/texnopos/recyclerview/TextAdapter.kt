@@ -22,7 +22,7 @@ class TextAdapter : RecyclerView.Adapter<TextViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: TextViewHolder, position: Int) {
-        holder.bind(models[position])
+        holder.populateModel(models[position])
     }
 
     override fun getItemCount(): Int {
