@@ -3,15 +3,15 @@ package uz.texnopos.recyclerview
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
+import uz.texnopos.recyclerview.data.Ad
 import uz.texnopos.recyclerview.data.Student
 import uz.texnopos.recyclerview.databinding.ActivityMainBinding
-import uz.texnopos.recyclerview.databinding.ItemStudentBinding
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val adapter = StudentAdapter()
-    private val students = mutableListOf<Student>()
+    private val models = mutableListOf<Model>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getStudents()
-        adapter.models = students
+        adapter.models = models
 
         binding.apply {
             recyclerView.adapter = adapter
@@ -34,7 +34,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun getStudents() {
         repeat(25) {
-            students.add(Student(generateName, generatePhone))
+            if (it % 5 == 0 && it != 0) {
+                models.add(Ad(getString(R.string.ad_title, it / 5)))
+            } else {
+                models.add(Student(generateName, generatePhone))
+            }
         }
     }
 
