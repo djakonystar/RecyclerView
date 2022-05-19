@@ -1,6 +1,7 @@
 package uz.texnopos.recyclerview
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -26,5 +27,8 @@ class StudentAdapter : RecyclerView.Adapter<StudentViewHolder>() {
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         holder.bind(models[position])
+        holder.setOnItemClickListener {
+            notifyItemChanged(position)
+        }
     }
 }

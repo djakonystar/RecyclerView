@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import uz.texnopos.recyclerview.data.Student
 import uz.texnopos.recyclerview.databinding.ActivityMainBinding
+import uz.texnopos.recyclerview.databinding.ItemStudentBinding
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
